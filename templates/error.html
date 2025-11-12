@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Error - Proyecto DaVinci{% endblock %}
+
+{% block content %}
+<h2 class="text-danger mb-4">Ocurrió un error</h2>
+<div class="alert alert-danger">
+    <p>{{ mensaje }}</p>
+</div>
+
+<a href="/" class="btn btn-primary">Volver al inicio</a>
+{% endblock %}

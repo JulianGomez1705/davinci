@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Cálculo - Proyecto DaVinci{% endblock %}
+
+{% block content %}
+<h2 class="mb-4">Realizar cálculo</h2>
+
+<form method="post" action="/resultado">
+    <div class="mb-3">
+        <label for="valor1" class="form-label">Valor 1</label>
+        <input type="number" id="valor1" name="valor1" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label for="valor2" class="form-label">Valor 2</label>
+        <input type="number" id="valor2" name="valor2" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">Calcular</button>
+</form>
+{% endblock %}
