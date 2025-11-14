@@ -1,12 +1,19 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
+from typing import List, Optional
 
-class SimulationInput(BaseModel):
-    masa: float
-    fuerza: float
-    coef_rozamiento: float
-    tiempo: float
+class EcuacionConica(BaseModel):
+    A: float = Field(0.0, description="Coeficiente de x^2")
+    B: float = Field(0.0, description="Coeficiente de y^2")
+    C: float = Field(0.0, description="Coeficiente de z^2")
+    D: float = Field(0.0, description="Coeficiente de x*y")
+    E: float = Field(0.0, description="Coeficiente de x*z")
+    F: float = Field(0.0, description="Coeficiente de y*z")
+    G: float = Field(0.0, description="Coeficiente de x")
+    H: float = Field(0.0, description="Coeficiente de y")
+    I: float = Field(0.0, description="Coeficiente de z")
+    J: float = Field(0.0, description="Término constante")
 
-class SimulationOutput(BaseModel):
-    aceleracion: float
-    velocidad_final: float
-    distancia_recorrida: float
+class PuntoEvaluacion(BaseModel):
+    x: float
+    y: float
+    z: float
