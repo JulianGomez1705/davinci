@@ -1,16 +1,17 @@
 from fastapi import APIRouter, HTTPException
 from typing import Dict, Any, List
 
-# CORRECCIÓN CLAVE: Esto resuelve el ImportError
-from .. import schemas
-from ..services.calculo_vectorial import clasificar_superficie_conica, calcular_valor_ecuacion
+# CORRECCIÓN CLAVE: Usamos la importación ABSOLUTA desde el paquete raíz 'davinci'
+# Esto requiere que hayas creado el archivo davinci/__init__.py
+from davinci import schemas
+from davinci.services.calculo_vectorial import clasificar_superficie_conica, calcular_valor_ecuacion
 
 router = APIRouter()
 
 
 @router.post("/clasificar_evaluar", response_model=Dict[str, Any], tags=["Calculo Vectorial"])
 def clasificar_y_evaluar_superficie(
-        # NOTA: Ahora usamos el prefijo 'schemas.' para referenciar los modelos
+        # USAMOS EL PREFIJO 'schemas.' para referenciar los modelos Pydantic
         ecuacion_data: schemas.EcuacionConica,
         puntos_evaluacion: List[schemas.PuntoEvaluacion]
 ):
