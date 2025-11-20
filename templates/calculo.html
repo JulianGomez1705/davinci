@@ -1,21 +1,39 @@
 {% extends "base.html" %}
 
-{% block title %}Cálculo - Proyecto DaVinci{% endblock %}
-
 {% block content %}
-<h2 class="mb-4">Realizar cálculo</h2>
+<div class="container mt-5">
+    <h1>Clasificación de Superficies Cónicas y Evaluación Vectorial</h1>
+    <form method="POST" action="/simulation/resultado_calculo">
 
-<form method="post" action="/resultado">
-    <div class="mb-3">
-        <label for="valor1" class="form-label">Valor 1</label>
-        <input type="number" id="valor1" name="valor1" class="form-control" required>
-    </div>
+        <h3 class="mt-4">Coeficientes de la Ecuación Cuadrática General</h3>
+        <p>Ecuación: A·x² + B·y² + C·z² + D·xy + E·xz + F·yz + G·x + H·y + I·z + J = 0</p>
 
-    <div class="mb-3">
-        <label for="valor2" class="form-label">Valor 2</label>
-        <input type="number" id="valor2" name="valor2" class="form-control" required>
-    </div>
+        <div class="row">
+            {% for coef in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'] %}
+            <div class="col-md-3 mb-3">
+                <label for="{{ coef }}" class="form-label">Coef. {{ coef }}</label>
+                <input type="number" step="any" class="form-control" id="{{ coef }}" name="{{ coef }}" value="0.0">
+            </div>
+            {% endfor %}
+        </div>
 
-    <button type="submit" class="btn btn-success">Calcular</button>
-</form>
+        <h3 class="mt-4">Punto para Evaluación (x, y, z)</h3>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="punto_x" class="form-label">Coordenada X</label>
+                <input type="number" step="any" class="form-control" id="punto_x" name="punto_x" value="0.0" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="punto_y" class="form-label">Coordenada Y</label>
+                <input type="number" step="any" class="form-control" id="punto_y" name="punto_y" value="0.0" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="punto_z" class="form-label">Coordenada Z</label>
+                <input type="number" step="any" class="form-control" id="punto_z" name="punto_z" value="0.0" required>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Clasificar y Evaluar</button>
+    </form>
+</div>
 {% endblock %}
