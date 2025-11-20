@@ -1,9 +1,9 @@
 from fastapi import APIRouter, HTTPException
 from typing import Dict, Any, List
 
-# SOLUCIÓN: Usamos la importación ABSOLUTA desde el paquete raíz 'davinci'
-from davinci import schemas
-from davinci.services.calculo_vectorial import clasificar_superficie_conica, calcular_valor_ecuacion
+# SOLUCIÓN: Usamos la importación relativa (dos puntos) para subir al paquete padre (davinci)
+from .. import schemas
+from ..services.calculo_vectorial import clasificar_superficie_conica, calcular_valor_ecuacion
 
 router = APIRouter()
 
