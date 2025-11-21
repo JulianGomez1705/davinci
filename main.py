@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 # 1. Importación Simple de Rutas (Necesario para Uvicorn en el directorio davinci)
-from rutas import simulation, team, project
+from davinci.rutas import simulation, team, project
 
 # 2. Inicialización de la app
 app = FastAPI(title="Tanque de Guerra de Leonardo da Vinci API")
