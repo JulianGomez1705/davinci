@@ -3,10 +3,9 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from typing import Dict, Any, List
 
-# davinci/rutas/simulation.py
-# DEBE MANTENERSE ASÍ:
 from davinci import schemas
 from davinci.services.calculo_vectorial import clasificar_superficie_conica, calcular_valor_ecuacion
+
 router = APIRouter()
 
 try:

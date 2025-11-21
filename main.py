@@ -3,33 +3,22 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-try:
-    from rutas import simulation, team, project
-except ImportError:
-    raise
+# 1. Importación Simple de Rutas (Necesario para Uvicorn en el directorio davinci)
+from rutas import simulation, team, project
 
-app = FastAPI()
+# 2. Inicialización de la app
+app = FastAPI(title="Tanque de Guerra de Leonardo da Vinci API")
 
+# 3. Archivos estáticos y plantillas HTML (DEBEN DEFINIRSE ANTES DE USAR RUTAS)
 app.mount("/static", StaticFiles(directory="static"), name="static")
-plantillas = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="templates")
 
+# 4. Inclusión de Routers
 app.include_router(simulation.router, prefix="/simulation", tags=["Simulation"])
 app.include_router(team.router, prefix="/team", tags=["Team"])
 app.include_router(project.router, prefix="/project", tags=["Project"])
 
+# 5. Endpoint Home
 @app.get("/", response_class=HTMLResponse)
-async def inicio(request: Request):
-    return plantillas.TemplateResponse("index.html", {"request": request})
-
-@app.get("/calculo", response_class=HTMLResponse)
-async def calculo(request: Request):
-    return plantillas.TemplateResponse("calculo.html", {"request": request})
-
-@app.post("/resultado", response_class=HTMLResponse)
-async def resultado(request: Request, valor1: float = Form(...), valor2: float = Form(...)):
-    try:
-        resultado = valor1 + valor2
-        datos = {"request": request, "valor1": valor1, "valor2": valor2, "resultado": resultado}
-        return plantillas.TemplateResponse("resultado.html", datos)
-    except Exception as e:
-        return plantillas.TemplateResponse("error.html", {"request": request, "mensaje": str(e)})
+def home(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request, "message": "Bienvenido al proyecto del tanque de guerra de Leonardo da Vinci"})
