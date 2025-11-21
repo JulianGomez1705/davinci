@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 try:
-    from davinci.rutas import simulation, team, project
+    from rutas import simulation, team, project
 except ImportError:
     raise
 
