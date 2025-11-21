@@ -3,14 +3,11 @@ from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from typing import Dict, Any, List
 
-from .. import schemas
-from ..services.calculo_vectorial import clasificar_superficie_conica, calcular_valor_ecuacion
+from davinci import schemas
+from davinci.services.calculo_vectorial import clasificar_superficie_conica, calcular_valor_ecuacion
 
-# Definición de router (asumo que está al inicio)
 router = APIRouter()
 
-# Las funciones get_calculo_vectorial_form y post_calculo_vectorial deben ser añadidas al final
-# Se necesita una definición de templates, ya que no se puede importar directamente de main.py
 try:
     from davinci.main import templates as templates_engine
 except ImportError:
@@ -42,8 +39,6 @@ def clasificar_y_evaluar_superficie(
     }
 
 
-# **INICIO DEL CÓDIGO AÑADIDO PARA LAS VISTAS**
-
 @router.get("/calculo_vectorial", response_class=HTMLResponse, tags=["Vistas"])
 async def get_calculo_vectorial_form(request: Request):
     return templates_engine.TemplateResponse("calculo.html", {"request": request})
@@ -67,7 +62,6 @@ async def post_calculo_vectorial(
     puntos_evaluacion = [punto_data]
 
     try:
-        # Llamamos a la función ya existente para el cálculo
         resultados = clasificar_y_evaluar_superficie(
             schemas.EcuacionConica(**ecuacion_data),
             puntos_evaluacion
@@ -78,5 +72,3 @@ async def post_calculo_vectorial(
     except Exception as e:
         return templates_engine.TemplateResponse("error.html", {"request": request, "error_message": str(e)},
                                                  status_code=500)
-
-
