@@ -2,16 +2,14 @@ from fastapi import APIRouter, HTTPException, Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from typing import Dict, Any, List
+import os
 
 from davinci import schemas
 from davinci.services.calculo_vectorial import clasificar_superficie_conica, calcular_valor_ecuacion
 
 router = APIRouter()
 
-try:
-    from davinci.main import templates as templates_engine
-except ImportError:
-    templates_engine = Jinja2Templates(directory="templates")
+templates_engine = Jinja2Templates(directory=os.path.join("davinci", "templates"))
 
 
 @router.post("/clasificar_evaluar", response_model=Dict[str, Any], tags=["Calculo Vectorial"])
