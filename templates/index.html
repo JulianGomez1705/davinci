@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Da Vinci's War Tank</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="main-layout">
         <aside class="sidebar">
             <div class="sidebar-header">
-                <img src="{{ url_for('static', path='/davinci_menu_logo.png') }}" alt="Da Vinci Logo" class="sidebar-logo">
+                <img src="{{ url_for('static', path='davinci_menu_logo.png') }}" alt="Da Vinci Logo" class="sidebar-logo">
                 <span class="sidebar-title">Da Vinci's War Tank</span>
             </div>
             <nav class="sidebar-nav">
@@ -28,9 +28,9 @@
                     <span class="top-bar-project-name">@ Da Vinci's War Tank</span>
                 </div>
                 <div class="top-bar-right">
-                    <img src="{{ url_for('static', path='/condatta_logo.png') }}" alt="Condatta Logo" class="condatta-logo">
+                    <img src="{{ url_for('static', path='condatta_logo.png') }}" alt="Condatta Logo" class="condatta-logo">
                     <span class="user-name">Condatta</span>
-                    <img src="{{ url_for('static', path='/condatta_user_profile.png') }}" alt="User Profile" class="user-profile-pic">
+                    <img src="{{ url_for('static', path='condatta_user_profile.png') }}" alt="User Profile" class="user-profile-pic">
                 </div>
             </header>
 
@@ -45,21 +45,18 @@
                             <i class="fas fa-ellipsis-h"></i>
                         </div>
                     </div>
-
                     <div class="card card-small card-light">
                         <div class="card-header-icon">
                             <i class="fas fa-sigma"></i>
                         </div>
                         <span class="card-title">Cálculo Vectorial</span>
                     </div>
-
                     <div class="card card-small card-light">
                         <div class="card-header-icon">
                             <i class="fas fa-flask"></i>
                         </div>
                         <span class="card-title">Física II</span>
                     </div>
-
                     <div class="card card-small card-light">
                         <div class="card-header-icon">
                             <i class="fab fa-python"></i>
@@ -70,16 +67,16 @@
 
                 <div class="image-gallery">
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', path='/davinci_tank_sketch.jpg') }}" alt="Boceto de Tanque de Da Vinci">
+                        <img src="{{ url_for('static', path='davinci_tank_sketch.jpg') }}" alt="Boceto de Tanque de Da Vinci">
                     </div>
                     <div class="gallery-item">
-                        <img src="{{ url_for('static', path='/davinci_tank_3d.png') }}" alt="Render 3D de Tanque de Da Vinci">
+                        <img src="{{ url_for('static', path='davinci_tank_3d.png') }}" alt="Render 3D de Tanque de Da Vinci">
                     </div>
                 </div>
 
                 <div class="bottom-section">
                     <div class="portrait-card">
-                        <img src="{{ url_for('static', path='/davinci_portrait.jpg') }}" alt="Retrato de Leonardo Da Vinci" class="portrait-img">
+                        <img src="{{ url_for('static', path='davinci_portrait.jpg') }}" alt="Retrato de Leonardo Da Vinci" class="portrait-img">
                     </div>
                     <div class="info-card">
                         <h2>Información Relevante de Leonardo Da Vinci</h2>
