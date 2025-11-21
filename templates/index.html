@@ -1,11 +1,108 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Da Vinci's War Tank</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="main-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="{{ url_for('static', path='/davinci_menu_logo.png') }}" alt="Da Vinci Logo" class="sidebar-logo">
+                <span class="sidebar-title">Da Vinci's War Tank</span>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="/" class="nav-item active"><i class="fas fa-home"></i></a>
+                <a href="#" class="nav-item"><i class="fas fa-bars"></i></a>
+                <a href="/simulation/calculo_vectorial" class="nav-item"><i class="fas fa-calculator"></i></a>
+                <a href="#" class="nav-item"><i class="fas fa-cog"></i></a>
+                <a href="#" class="nav-item"><i class="fas fa-paint-brush"></i></a>
+            </nav>
+        </aside>
 
-{% block title %}Inicio - Proyecto DaVinci{% endblock %}
+        <div class="content-area">
+            <header class="top-bar">
+                <div class="top-bar-left">
+                    <span class="top-bar-project-name">@ Da Vinci's War Tank</span>
+                </div>
+                <div class="top-bar-right">
+                    <img src="{{ url_for('static', path='/condatta_logo.png') }}" alt="Condatta Logo" class="condatta-logo">
+                    <span class="user-name">Condatta</span>
+                    <img src="{{ url_for('static', path='/condatta_user_profile.png') }}" alt="User Profile" class="user-profile-pic">
+                </div>
+            </header>
 
-{% block content %}
-<div class="text-center">
-    <h1 class="mb-4">Bienvenido al Proyecto DaVinci</h1>
-    <p>Este sistema permite realizar cálculos y simulaciones de datos relacionados con tu proyecto.</p>
-    <a href="/calculo" class="btn btn-primary mt-3">Ir al cálculo</a>
-</div>
-{% endblock %}
+            <main class="main-content">
+                <div class="card-grid">
+                    <div class="card card-small card-dark">
+                        <div class="card-header-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <span class="card-title">Condatta</span>
+                        <div class="card-options">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+
+                    <div class="card card-small card-light">
+                        <div class="card-header-icon">
+                            <i class="fas fa-sigma"></i>
+                        </div>
+                        <span class="card-title">Cálculo Vectorial</span>
+                    </div>
+
+                    <div class="card card-small card-light">
+                        <div class="card-header-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <span class="card-title">Física II</span>
+                    </div>
+
+                    <div class="card card-small card-light">
+                        <div class="card-header-icon">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <span class="card-title">Desarrollo de Software</span>
+                    </div>
+                </div>
+
+                <div class="image-gallery">
+                    <div class="gallery-item">
+                        <img src="{{ url_for('static', path='/davinci_tank_sketch.jpg') }}" alt="Boceto de Tanque de Da Vinci">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="{{ url_for('static', path='/davinci_tank_3d.png') }}" alt="Render 3D de Tanque de Da Vinci">
+                    </div>
+                </div>
+
+                <div class="bottom-section">
+                    <div class="portrait-card">
+                        <img src="{{ url_for('static', path='/davinci_portrait.jpg') }}" alt="Retrato de Leonardo Da Vinci" class="portrait-img">
+                    </div>
+                    <div class="info-card">
+                        <h2>Información Relevante de Leonardo Da Vinci</h2>
+                        <ul>
+                            <li><strong>Nacionalidad:</strong> Italiano</li>
+                            <li><strong>Época:</strong> Renacimiento</li>
+                        </ul>
+                        <h3>Obras principales:</h3>
+                        <ul>
+                            <li><cite>La Mona Lisa</cite></li>
+                            <li><cite>La Última Cena</cite></li>
+                            <li><cite>El Hombre de Vitruvio</cite> (dibujo sobre proporciones humanas)</li>
+                        </ul>
+                        <h3>Inventos y estudios:</h3>
+                        <ul>
+                            <li>Diseñó un <strong>tanque de guerra</strong> (un vehículo blindado con cañones en 360 grados), precursor de los vehículos militares modernos.</li>
+                            <li>Creó bocetos de máquinas voladoras, puentes, armas, y sistemas hidráulicos.</li>
+                            <li>Realizó detallados estudios anatómicos mediante la disección de cadáveres para entender el cuerpo humano.</li>
+                        </ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

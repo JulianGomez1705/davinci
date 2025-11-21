@@ -22,3 +22,16 @@ app.include_router(project.router, prefix="/project", tags=["Project"])
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request, "message": "Bienvenido al proyecto del tanque de guerra de Leonardo da Vinci"})
+
+
+@app.get("/", response_class=HTMLResponse)
+def home(request: Request):
+    return templates.TemplateResponse(
+        "index.html",
+        {
+            "request": request,
+            "title": "Proyecto Tanque de Guerra de Da Vinci",
+            "info_davinci": "Leonardo da Vinci, genio del Renacimiento (1452–1519), fue un artista, científico e inventor. Su diseño más conocido es el Tanque de Guerra (Armoured Car), un vehículo blindado propulsado por la fuerza humana, que representa su audaz mezcla de arte e ingeniería militar.",
+            "imagen_url": "/static/davinci_tank.jpg" # Usaremos esta URL para la imagen
+        }
+    )
